@@ -173,6 +173,15 @@ jobs:
               apt-get install -y cabal-install-2.4
               bash -c "$PACKCHECK cabal"
         - *save
+  stack-ghc-8.6.3:
+      <<: *env
+      steps:
+        - checkout
+        - *preinstall
+        - *restore
+        - run: |
+            bash -c "$PACKCHECK stack RESOLVER=lts-13"
+        - *save
   stack-ghc-8.4:
       <<: *env
       steps:
