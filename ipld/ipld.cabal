@@ -1,0 +1,119 @@
+cabal-version: >= 1.10
+
+name:           ipld
+version:        0.0.0.1
+synopsis:       An implementation of the IPLD protocol.
+description:    IPLD provides interoperability for hash-linked data structures such as those found in git, Bitcoin, IPFS, etc.
+category:       recursion, library, bitcoin, ethereum, finance
+homepage:       https://github.com/cmk/ipld
+bug-reports:    https://github.com/cmk/ipld/issues
+author:         Chris McKinlay
+maintainer:     Chris McKinlay
+copyright:      2019 Chris McKinlay
+license:        BSD3
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/cmk/ipld
+
+library
+  exposed-modules:
+      Data.Binary.VarInt
+      Data.IPLD.Multihash
+      Data.IPLD.Multihash.Internal
+      Data.IPLD.Graph.Attribute
+      Data.IPLD.Graph.Fold
+      Data.IPLD.Graph.Hash
+      Data.IPLD.Graph.Pretty
+      Data.IPLD.Graph.Store
+      Data.IPLD.Graph.Trie
+      -- Data.IPLD.Graph.Trie.Cofree
+      -- Data.IPLD.Graph.Trie.Yoneda
+      -- Data.IPLD.Graph.Trie.ByteString
+      Data.IPLD.Graph.Types
+      Data.IPLD.Graph.Warning
+      Data.IPLD.Graph.Zipper
+  hs-source-dirs:
+      src
+  default-extensions: FlexibleContexts TypeFamilies TypeApplications RankNTypes LambdaCase MultiParamTypeClasses OverloadedStrings ScopedTypeVariables
+  ghc-options: -Wall -Wincomplete-uni-patterns -Wincomplete-record-updates
+  build-depends:
+      base >=4.9 && <5.0
+    , adjunctions
+    , bifunctors
+    , binary >= 0.8.3
+    , bytestring >= 0.10.4
+    --, bytestring-trie
+    , deepseq
+    , cryptonite >= 0.13
+    , hashable
+    , memory >= 0.11
+    , comonad
+    , distributive
+    , discrimination
+    , either
+    , errors
+    , free
+    , memory
+    , mtl
+    , selective
+    , these
+    , transformers
+    , yaya
+    , yaya-unsafe
+
+test-suite spec
+  type: exitcode-stdio-1.0
+  main-is: test.hs
+  other-modules:
+      Test.Data.IPLD.Multihash
+      Test.Data.IPLD.Graph
+      Test.Data.IPLD.Graph.Store
+      Test.Data.IPLD.Graph.Tree
+      Test.Data.IPLD.Graph.List
+  hs-source-dirs:
+      test
+  default-extensions: DeriveFunctor DeriveFoldable DeriveGeneric DeriveTraversable DataKinds FlexibleContexts FlexibleInstances LambdaCase KindSignatures OverloadedStrings PolyKinds RankNTypes ScopedTypeVariables StandaloneDeriving TemplateHaskell TupleSections TypeOperators OverloadedStrings TypeApplications
+  ghc-options: -Wall -Werror -threaded -rtsopts -with-rtsopts=-N
+  cpp-options: -DTEST
+  build-tool-depends:
+      hspec-discover:hspec-discover
+  build-depends:
+      aeson
+    , aeson-pretty
+    , base >=4.8
+    , base16-bytestring
+    , base64-bytestring
+    , bifunctors
+    , bytestring
+    , containers
+    , cryptonite
+    , deriving-compat
+    , directory
+    , free
+    , hedgehog
+    , http-client
+    , lens
+    , lens-aeson
+    , memory
+    , ipld
+    , mtl
+    , optparse-applicative
+    , pretty
+    , random
+    , safe-exceptions
+    , servant
+    , servant-client
+    , servant-server
+    , temporary
+    , text
+    , transformers
+    , unordered-containers
+    , vector
+    , warp
+    , wreq
+    , yaya
+    , yaya-unsafe
+  default-language: Haskell2010
+
