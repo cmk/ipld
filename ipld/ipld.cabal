@@ -22,18 +22,18 @@ library
       Data.Binary.VarInt
       Data.IPLD.Multihash
       Data.IPLD.Multihash.Internal
-      Data.IPLD.Graph.Attribute
-      Data.IPLD.Graph.Fold
-      Data.IPLD.Graph.Hash
-      Data.IPLD.Graph.Pretty
+      -- Data.IPLD.Graph.Attribute
+      -- Data.IPLD.Graph.Fold
+      -- Data.IPLD.Graph.Hash
+      -- Data.IPLD.Graph.Pretty
       Data.IPLD.Graph.Store
-      Data.IPLD.Graph.Trie
+      -- Data.IPLD.Graph.Trie
       -- Data.IPLD.Graph.Trie.Cofree
       -- Data.IPLD.Graph.Trie.Yoneda
       -- Data.IPLD.Graph.Trie.ByteString
       Data.IPLD.Graph.Types
-      Data.IPLD.Graph.Warning
-      Data.IPLD.Graph.Zipper
+      -- Data.IPLD.Graph.Warning
+      -- Data.IPLD.Graph.Zipper
   hs-source-dirs:
       src
   default-extensions: FlexibleContexts TypeFamilies TypeApplications RankNTypes LambdaCase MultiParamTypeClasses OverloadedStrings ScopedTypeVariables

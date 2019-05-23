@@ -5,7 +5,7 @@ import Control.Comonad.Trans.Cofree
 import Control.Monad.Trans.Free
 import Control.Monad.Trans.Maybe
 import Crypto.Hash 
-import Data.IPLD.Graph.Hash
+-- import Data.IPLD.Graph.Hash
 import Data.IPLD.Graph.Types
 import Data.Functor.Compose
 import Yaya.Fold
