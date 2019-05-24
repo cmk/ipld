@@ -1,4 +1,4 @@
-module Data.IPLD.Graph.Store where
+module Data.IPLD.Store where
 
 --import           Control.Exception.Safe (MonadThrow, throwString)
 import Control.Comonad.Trans.Cofree

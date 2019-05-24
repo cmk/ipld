@@ -1,12 +1,12 @@
 {-# LANGUAGE TemplateHaskell  #-}
 {-# LANGUAGE TypeApplications #-}
 
-module Test.Data.IPLD.Multihash where
+module Test.Data.IPLD.Codec.Multihash where
 
 
 import           Hedgehog
 import qualified Crypto.Hash as C
-import qualified Data.IPLD.Multihash as Strict
+import qualified Data.IPLD.Codec.Multihash as Strict
 import qualified Hedgehog.Gen as Gen
 import qualified Hedgehog.Range as Range
 
