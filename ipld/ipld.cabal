@@ -75,13 +75,11 @@ library
     , memory >= 0.11
     , comonad
     , distributive
-    , discrimination
     , either
     , errors
     , free
     , memory
     , mtl
-    , selective
     , these
     , transformers
     , yaya
@@ -167,9 +165,6 @@ test-suite spec
     , pretty
     , random
     , safe-exceptions
-    , servant
-    , servant-client
-    , servant-server
     , temporary
     , text
     , transformers
