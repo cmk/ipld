@@ -1,6 +1,6 @@
 {-# LANGUAGE TemplateHaskell #-}
 
-module Test.Data.IPLD.Graph.Store where
+module Test.Data.IPLD.Store where
 
 import Crypto.Hash
 import Crypto.Hash.IO (HashAlgorithm(..))
@@ -10,7 +10,7 @@ import           Data.Functor.Compose
 import           Data.IORef
 import           Data.Map.Strict (Map)
 import qualified Data.Map.Strict as M
-import           Data.IPLD.Graph.Store -- (PutCapability, GetCapability, Store, strictDeref, lazyDeref', uploadDeep)
+import           Data.IPLD.Store -- (PutCapability, GetCapability, Store, strictDeref, lazyDeref', uploadDeep)
 import           Control.Monad.Trans.Maybe
 
 import Control.Comonad.Trans.Cofree

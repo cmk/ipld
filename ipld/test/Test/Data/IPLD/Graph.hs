@@ -5,11 +5,11 @@ module Test.Data.IPLD.Graph where
 import Control.Monad.IO.Class
 import Crypto.Hash
 import Crypto.Hash.IO (HashAlgorithm(..))
-import Data.IPLD.Graph.Store
+import Data.IPLD.Store
 import Data.IPLD.Graph.Types
 import Data.IORef
 import Hedgehog
-import Test.Data.IPLD.Graph.Store 
+import Test.Data.IPLD.Store 
 import Test.Data.IPLD.Graph.Tree
 import Test.Data.IPLD.Graph.List
 import qualified Data.Map.Strict as M

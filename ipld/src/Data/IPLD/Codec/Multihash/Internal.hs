@@ -2,14 +2,7 @@
 {-# LANGUAGE ExistentialQuantification #-}
 {-# LANGUAGE ScopedTypeVariables       #-}
 
--- |
--- Copyright   : 2018 Monadic GmbH
--- License     : BSD3
--- Maintainer  : kim@monadic.xyz, team@monadic.xyz
--- Stability   : provisional
--- Portability : non-portable (GHC extensions)
---
-module Data.IPLD.Multihash.Internal
+module Data.IPLD.Codec.Multihash.Internal
     ( HashAlgorithm (..)
     , Multihashable
 

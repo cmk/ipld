@@ -2,7 +2,7 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE ScopedTypeVariables        #-}
 
-module Data.IPLD.Multihash
+module Data.IPLD.Codec.Multihash
     ( Multihash
     , fromDigest
     , encodedBytes
@@ -26,7 +26,7 @@ module Data.IPLD.Multihash
     )
 where
 
-import           Data.IPLD.Multihash.Internal
+import           Data.IPLD.Codec.Multihash.Internal
 
 import           Control.DeepSeq (NFData)
 import qualified Crypto.Hash as C

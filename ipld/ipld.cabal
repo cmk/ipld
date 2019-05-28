@@ -20,13 +20,15 @@ source-repository head
 library
   exposed-modules:
       Data.Binary.VarInt
-      Data.IPLD.Multihash
-      Data.IPLD.Multihash.Internal
+      Data.Binary.BaseN
+      Data.IPLD.CID
+      Data.IPLD.Codec.Multibase
+      Data.IPLD.Codec.Multihash
+      Data.IPLD.Codec.Multihash.Internal
       -- Data.IPLD.Graph.Attribute
       -- Data.IPLD.Graph.Fold
       -- Data.IPLD.Graph.Hash
       -- Data.IPLD.Graph.Pretty
-      Data.IPLD.Graph.Store
       -- Data.IPLD.Graph.Trie
       -- Data.IPLD.Graph.Trie.Cofree
       -- Data.IPLD.Graph.Trie.Yoneda
@@ -34,10 +36,32 @@ library
       Data.IPLD.Graph.Types
       -- Data.IPLD.Graph.Warning
       -- Data.IPLD.Graph.Zipper
+      Data.IPLD.Store
   hs-source-dirs:
       src
-  default-extensions: FlexibleContexts TypeFamilies TypeApplications RankNTypes LambdaCase MultiParamTypeClasses OverloadedStrings ScopedTypeVariables
-  ghc-options: -Wall -Wincomplete-uni-patterns -Wincomplete-record-updates
+  default-extensions: 
+      FlexibleContexts 
+      TypeFamilies 
+      TypeApplications 
+      RankNTypes 
+      MultiParamTypeClasses 
+      OverloadedStrings 
+      ScopedTypeVariables
+      DeriveGeneric
+      LambdaCase
+      MultiWayIf
+      NamedFieldPuns
+      RecordWildCards
+      StrictData
+      TupleSections
+  ghc-options:
+      -Wall
+      -Wcompat
+      -Wincomplete-uni-patterns
+      -Wincomplete-record-updates
+      -Wredundant-constraints
+      -fprint-expanded-synonyms
+      -funbox-small-strict-fields
   build-depends:
       base >=4.9 && <5.0
     , adjunctions
@@ -51,34 +75,72 @@ library
     , memory >= 0.11
     , comonad
     , distributive
-    , discrimination
     , either
     , errors
     , free
     , memory
     , mtl
-    , selective
     , these
     , transformers
     , yaya
     , yaya-unsafe
+    , aeson
+    , base16-bytestring
+    , base32-z-bytestring
+    , base58-bytestring
+    , base64-bytestring
+    , formatting
+    , sandi
+    , serialise
+    , tagged
+    , text
 
 test-suite spec
   type: exitcode-stdio-1.0
   main-is: test.hs
   other-modules:
-      Test.Data.IPLD.Multihash
+      Test.Data.IPLD.CID
+      Test.Data.IPLD.Codec.Multihash
       Test.Data.IPLD.Graph
-      Test.Data.IPLD.Graph.Store
       Test.Data.IPLD.Graph.Tree
       Test.Data.IPLD.Graph.List
+      Test.Data.IPLD.Store
   hs-source-dirs:
       test
-  default-extensions: DeriveFunctor DeriveFoldable DeriveGeneric DeriveTraversable DataKinds FlexibleContexts FlexibleInstances LambdaCase KindSignatures OverloadedStrings PolyKinds RankNTypes ScopedTypeVariables StandaloneDeriving TemplateHaskell TupleSections TypeOperators OverloadedStrings TypeApplications
-  ghc-options: -Wall -Werror -threaded -rtsopts -with-rtsopts=-N
-  cpp-options: -DTEST
-  build-tool-depends:
-      hspec-discover:hspec-discover
+  default-extensions: 
+      DeriveFunctor 
+      DeriveFoldable 
+      DeriveGeneric 
+      DeriveTraversable 
+      DataKinds
+      FlexibleContexts 
+      FlexibleInstances
+      TypeFamilies 
+      TypeApplications 
+      RankNTypes 
+      MultiParamTypeClasses 
+      OverloadedStrings 
+      ScopedTypeVariables
+      DeriveGeneric
+      LambdaCase
+      MultiWayIf
+      NamedFieldPuns
+      RecordWildCards
+      StrictData
+      TupleSections
+      TemplateHaskell 
+  ghc-options:
+      -Wall
+      -Wcompat
+      -Wincomplete-uni-patterns
+      -Wincomplete-record-updates
+      -- -Wredundant-constraints
+      -fprint-expanded-synonyms
+      -funbox-small-strict-fields
+      -Werror 
+      -threaded 
+      -rtsopts 
+      -with-rtsopts=-N
   build-depends:
       aeson
     , aeson-pretty
@@ -103,9 +165,6 @@ test-suite spec
     , pretty
     , random
     , safe-exceptions
-    , servant
-    , servant-client
-    , servant-server
     , temporary
     , text
     , transformers
